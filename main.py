@@ -111,6 +111,8 @@ def get_notifs(xf_user, xf_token):
 
 
           time.sleep(10)
-
-login=timolia(timoliauser,timoliapwd)
-# print(login.phpssid)
+while True:
+  try:
+    login=timolia(timoliauser,timoliapwd)
+  except:
+    pass
