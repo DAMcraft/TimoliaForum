@@ -110,6 +110,7 @@ def get_notifs(xf_user, xf_token):
                       filename = r''+tempdir+"\\"+n
                       img = Image.open(filename+".png")
                       img.save(filename+".ico")
+                      ToastNotifier().show_toast("New Alert on the Timolia Forum!",notif_text,duration=20,icon_path=tempdir+"\\"+n+".ico", callback_on_click=open_url)
               except: #If get_notif_img failed
                   tempdir = os.getenv('temp')
                   if not os.path.isfile(tempdir+"\\timolia_already_alertet.txt"):
@@ -126,12 +127,9 @@ def get_notifs(xf_user, xf_token):
                       filename = r''+tempdir+"\\"+n
                       img = Image.open(filename+".png")
                       img.save(filename+".ico")
-              ToastNotifier().show_toast("New Alert on the Timolia Forum!",notif_text,duration=20,icon_path=tempdir+"\\"+n+".ico", callback_on_click=open_url)
+                      ToastNotifier().show_toast("New Alert on the Timolia Forum!",notif_text,duration=20,icon_path=tempdir+"\\"+n+".ico", callback_on_click=open_url)
 
 
           time.sleep(10)
 while True:
-  try:
     login=timolia(timoliauser,timoliapwd)
-  except:
-    pass
